@@ -47,12 +47,7 @@ const Yelp = {
       }
     )
       .then((response) => response.json())
-      .then((data) => {
-        console.table(data);
-        console.count();
-
-        return data.terms;
-      });
+      .then((data) => data.terms);
   },
 };
 
