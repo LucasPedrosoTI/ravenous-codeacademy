@@ -3,8 +3,8 @@ const apiKey = process.env.REACT_APP_YELP_KEY;
 const Yelp = {
   search(term, location, sortBy, price) {
     return fetch(
-      // `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}&price=${price}&locale=pt_BR`,
-      `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}&price=${price}&locale=pt_BR`,
+      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}&price=${price}&locale=pt_BR`,
+      // `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}&price=${price}&locale=pt_BR`,
       {
         headers: {
           Authorization: `Bearer ${apiKey}`,
@@ -38,8 +38,8 @@ const Yelp = {
 
   autocomplete(text, latitude, longitude) {
     return fetch(
-      // `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/autocomplete?text=${text}&latitude=${latitude}&longitude=${longitude}`,
-      `https://api.yelp.com/v3/autocomplete?text=${text}&latitude=${latitude}&longitude=${longitude}`,
+      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/autocomplete?text=${text}&latitude=${latitude}&longitude=${longitude}`,
+      // `https://api.yelp.com/v3/autocomplete?text=${text}&latitude=${latitude}&longitude=${longitude}`,
       {
         headers: {
           Authorization: `Bearer ${apiKey}`,
