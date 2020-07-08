@@ -4,27 +4,51 @@ import "./Business.css";
 
 class Business extends React.Component {
   render() {
+    const gMaps = encodeURI(
+      this.props.business.address,
+      this.props.business.city,
+      this.props.business.state
+    );
+
     return (
       <div className="Business">
-        <div className="image-container">
+        <a
+          className="image-container"
+          href={this.props.business.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
-            src="https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg"
-            alt=""
+            src={this.props.business.imageSrc}
+            alt={this.props.business.name}
           />
-        </div>
-        <h2>{this.props.name}</h2>
+        </a>
+        <h2>{this.props.business.name}</h2>
         <div className="Business-information">
-          <div className="Business-address">
-            <p>{this.props.address}</p>
-            <p>{this.props.city}</p>
+          <div>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${gMaps}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p>{this.props.business.address}</p>
+              <p>{this.props.business.city}</p>
+              <p>
+                {this.props.business.state} {this.props.business.zipCode}
+              </p>
+            </a>
             <p>
-              {this.props.state} {this.props.zipCode}
+              <em>{(this.props.business.distance / 1000).toFixed(0)} km</em>
             </p>
+            <a href={`tel:${this.props.business.phone}`}>
+              <strong>{this.props.business.phone}</strong>
+            </a>
           </div>
           <div className="Business-reviews">
-            <h3>{this.props.category}</h3>
-            <h3 className="rating">{this.props.rating} stars</h3>
-            <p>{this.props.reviewCount} reviews</p>
+            <h3>{this.props.business.category.join(", ")}</h3>
+            <h3 className="rating">{this.props.business.rating} stars</h3>
+            <strong>{this.props.business.price}</strong>
+            <p>{this.props.business.reviewCount} reviews</p>
           </div>
         </div>
       </div>
